@@ -1,0 +1,33 @@
+.footer {
+  width: 100%;
+  min-height: 549px;
+  background: url("/assets/images/footer/footer-background.png") repeat,
+    linear-gradient(251.06deg, #7e5aff -2.19%, #55b7ff 103.21%);
+
+  &__container {
+    max-width: 810px;
+    min-height: 112px;
+
+    padding: 209px 20px 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__copyright-block {
+    max-width: 241px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 41px;
+  }
+
+  &__copyright {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #ffffff;
+  }
+}
