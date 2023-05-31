@@ -8,10 +8,10 @@
     padding-top: 120px;
   }
 
-  &__swiper-slide {
-    max-width: 370px;
-    min-height: 514px;
-  }
+  // &__swiper-slide {
+  //   max-width: 370px;
+  //   min-height: 514px;
+  // }
 
   &__content {
     padding: 0 20px 30px 20px;
@@ -82,6 +82,7 @@
 
   &__wrapper {
     position: static;
+    align-items: stretch;
   }
 }
 
@@ -129,9 +130,9 @@
   }
 }
 
-
-@media (max-width: 1599px) { 
+@media (max-width: 1599px) {
   .news__container {
-    padding: 120px 215px  0 215px;
+    padding: 120px 215px 0 215px;
   }
 }
+

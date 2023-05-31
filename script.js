@@ -36,23 +36,20 @@ const swiperNews = new Swiper(".news__swiper", {
     prevEl: ".swiper-button-prev",
   },
 
-  autoHeight: true,
-
-  slidesPerView: 3,
-  spaceBetween: 30,
+  // autoHeight: true,
   freeMode: true,
 
   loop: true,
 
   breakpoints: {
-    1590: {
-      slidesPerView: 2,
-      spaceBetween: 20,
+    1500:{
+      slidesPerView: 3,
+      spaceBetween: 30,
     },
 
-    1550: {
+    1100: {
       slidesPerView: 2,
-      spaceBetween: 20,
+      spaceBetween: 40,
     },
   },
 });

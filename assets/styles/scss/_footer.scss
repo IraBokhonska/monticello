@@ -1,14 +1,21 @@
 .footer {
   width: 100%;
   min-height: 549px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+
   background: url("/assets/images/footer/footer-background.png") repeat,
     linear-gradient(251.06deg, #7e5aff -2.19%, #55b7ff 103.21%);
 
   &__container {
     max-width: 810px;
     min-height: 112px;
+    padding-top: 209px;
 
-    padding: 209px 20px 0 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -32,40 +39,72 @@
   }
 }
 
-//-----------------FORM------------------
+// -----------------FORM------------------
 
-// .form {
-//   &__container {
-//     width: 770px;
-//     height: 450px;
-//     // margin-top: -300px;
-//     padding: 60px;
+.form {
+  &__container {
+    width: 770px;
+    height: 450px;
+    margin-top: -300px;
+    padding: 60px 60px 68px 60px;
 
-//     background: url("/assets/images/footer/form-background.png"), no-repeat,
-//       bottom=0;
-//     background-color: #ffffff;
-//   }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-//   &__title {
-//     margin-bottom: 42px;
-//   }
-// }
+    background-color: #ffffff;
+    z-index: 200;
 
-// .form__contacts {
-//   width: 286px;
-//   height: 196px;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
 
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   align-items: flex-end;
-//   gap: 22px;
+    color: #000000;
+  }
 
-//   font-family: "Montserrat", sans-serif;
-//   font-style: normal;
-//   font-weight: 400;
-//   font-size: 18px;
-//   line-height: 27px;
+  &__title {
+    margin-bottom: 42px;
+  }
+}
 
-//   color: #000000;
-// }
+.form__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__contacts {
+  width: fit-content;
+  height: 196px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 22px;
+
+  &-item {
+    display: flex;
+    justify-content: flex-start;
+    gap: 5px;
+    align-items: flex-end;
+
+    svg {
+      align-self: flex-end;
+    }
+  }
+}
+
+.form__inputs {
+  max-width: 310px;
+  min-height: 195px;
+}
+.icon-contact path {
+  fill: #7e5aff;
+  stroke: #7e5aff;
+}
+
+.clock {
+  transform: rotate(180deg);
+}
