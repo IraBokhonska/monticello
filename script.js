@@ -1,8 +1,8 @@
-let menuBtn = document.querySelector('.menu-btn');
-let menu = document.querySelector('.menu__body');
-menuBtn.addEventListener('click', function(){
-	menuBtn.classList.toggle('active');
-	menu.classList.toggle('active');
+let menuBtn = document.querySelector(".menu-btn");
+let menu = document.querySelector(".menu__body");
+menuBtn.addEventListener("click", function () {
+  menuBtn.classList.toggle("active");
+  menu.classList.toggle("active");
 });
 
 const swiperHeader = new Swiper(".header__swiper", {
@@ -25,20 +25,34 @@ const swiperHeader = new Swiper(".header__swiper", {
 
 // loop: true,
 
-var swiper = new Swiper(".news__swiper", {
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-
-  slidesPerView: 3,
-  spaceBetween: 30,
-  freeMode: true,
-
+const swiperNews = new Swiper(".news__swiper", {
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
   },
 
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  autoHeight: true,
+
+  slidesPerView: 3,
+  spaceBetween: 30,
+  freeMode: true,
+
   loop: true,
+
+  breakpoints: {
+    1590: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+
+    1550: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+  },
 });

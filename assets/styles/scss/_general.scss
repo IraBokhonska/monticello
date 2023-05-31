@@ -121,3 +121,39 @@
   background-color: #ffffff;
   border-radius: 50%;
 }
+
+// ------------swiper general----------------
+
+.swiper {
+  width: 100%;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  opacity: 1;
+
+  &:hover {
+    background-color: #ffffff;
+    transition: 0.3s;
+  }
+}
+
+@media (max-width: 1599px) { 
+  .container {
+    padding: 0 100px;
+  }
+}
+// @media (min-width: 576px) { ... }
+
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) { ... }
+
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) { ... }
+
+// // X-Large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }
