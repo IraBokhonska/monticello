@@ -38,7 +38,9 @@
   }
 
   &__scroll {
-    margin: 0 0 50px 0;
+    position: absolute;
+    bottom: 50px;
+    z-index: 200;
   }
 }
 
@@ -100,20 +102,19 @@
 
 // --------------header menu-----------------
 
-@media (max-width: 1400px) { 
+@media (max-width: 1400px) {
   .menu {
     max-width: 300px;
-  
+
     &__list {
       gap: 20px;
     }
-  
+
     &__item::before {
       margin-right: 3px;
     }
   }
 }
-
 
 @media (max-width: 576px) {
   .header__navigation {

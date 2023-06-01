@@ -1,9 +1,21 @@
-let menuBtn = document.querySelector(".menu-btn");
-let menu = document.querySelector(".menu__body");
+const headerScroll = document.querySelector(".header__scroll");
+const projectSection = document.querySelector("#projects");
+
+headerScroll.addEventListener("click", () => {
+  projectSection.scrollIntoView({ behavior: "smooth" });
+});
+
+// ------------------menu---------------------------
+
+const menuBtn = document.querySelector(".menu-btn");
+const menu = document.querySelector(".menu__body");
+
 menuBtn.addEventListener("click", function () {
   menuBtn.classList.toggle("active");
   menu.classList.toggle("active");
 });
+
+// --------------swiper------------------------------
 
 const swiperHeader = new Swiper(".header__swiper", {
   direction: "vertical",
@@ -12,18 +24,6 @@ const swiperHeader = new Swiper(".header__swiper", {
     clickable: true,
   },
 });
-
-// keyboard: {
-//   enabled: true,
-//   onlyInViewport: true,
-//   pageUpDown: true,
-// },
-
-// mousewheel: {
-//   sensitivity: 1,
-// },
-
-// loop: true,
 
 const swiperNews = new Swiper(".news__swiper", {
   pagination: {
@@ -36,20 +36,14 @@ const swiperNews = new Swiper(".news__swiper", {
     prevEl: ".swiper-button-prev",
   },
 
-  // autoHeight: true,
+  slidesPerView: 3,
+  spaceBetween: 30,
   freeMode: true,
 
   loop: true,
 
-  breakpoints: {
-    1500:{
-      slidesPerView: 3,
-      spaceBetween: 30,
-    },
-
-    1100: {
-      slidesPerView: 2,
-      spaceBetween: 40,
-    },
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: true,
   },
 });
