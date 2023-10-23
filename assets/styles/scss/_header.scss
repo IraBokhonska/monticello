@@ -6,17 +6,16 @@
 
   position: relative;
 
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+
   background: url("/assets/images/header/background.png") repeat,
     linear-gradient(243.43deg, #7e5aff 16.9%, #55b7ff 83.27%);
 
   &__container {
     margin-top: 53px;
     height: 100vh;
-  }
-
-  &__swiper-wrapper,
-  &__swiper {
-    position: static;
   }
 
   &__pagination {
@@ -27,66 +26,36 @@
     flex-direction: column;
     justify-content: flex-end;
     gap: 40px;
+
+    @media (max-width: 992px) {
+      flex-direction: row;
+      justify-content: center;
+      margin-bottom: 150px;
+    }
   }
 
   &__navigation {
     min-height: 54px;
 
     display: flex;
-    justify-content: space-between;
-    gap: 110px;
   }
 
   &__scroll {
     position: absolute;
     bottom: 50px;
     z-index: 200;
+
+    &:hover path {
+      stroke: #000000;
+    }
   }
-}
-
-.menu {
-  max-width: 515px;
-  align-self: center;
-
-  &__list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 70px;
-
-    white-space: nowrap;
-  }
-
-  &__item::before {
-    content: "";
-    width: 9px;
-    height: 9px;
-    margin-right: 14px;
-
-    border: 1px solid #ffffff;
-    border-radius: 50%;
-    display: inline-block;
-  }
-}
-
-.menu__item:hover::before {
-  background-color: #ffffff;
-  transition: 0.3s;
-}
-
-// ---------------header swiper--------------
-
-.header {
-  text-align: center;
-  text-transform: uppercase;
-  color: #ffffff;
 
   &__title {
     margin: 223px 0 20px 0;
 
     font-weight: 700;
-    font-size: 80px;
-    line-height: 98px;
+    @include adaptiveValue("font-size", 80, 35, 1);
+    @include adaptiveValue("line-height", 98, 40, 1);
     letter-spacing: 0.1em;
   }
 
@@ -100,15 +69,52 @@
   }
 }
 
-.scroll:hover path {
-  stroke: #000000;
-}
-
 // --------------header menu-----------------
 
+.menu {
+  max-width: 515px;
+  align-self: center;
+  margin-left: 144px;
+  margin-right: 110px;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 70px;
+
+    white-space: nowrap;
+  }
+
+  &__item {
+    &::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      margin-right: 14px;
+
+      border: 1px solid #ffffff;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    &:hover::before {
+      background-color: #ffffff;
+      transition: 0.3s;
+    }
+  }
+}
+
 @media (max-width: 1400px) {
+  .header {
+    &__navigation {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
   .menu {
     max-width: 300px;
+    margin-left: 0px;
+    margin-right: 0px;
 
     &__list {
       gap: 20px;
@@ -120,78 +126,20 @@
   }
 }
 
-@media (max-width: 576px) {
-  .header__navigation {
-    display: flex;
-    justify-content: flex-end;
-  }
-  .menu-btn {
-    width: 30px;
-    height: 30px;
+@media (max-width: 992px) {
+  .header {
     position: relative;
-    z-index: 2;
-    overflow: hidden;
-    z-index: 400;
   }
-
-  .menu-btn span {
-    width: 30px;
-    height: 2px;
+  .menu {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    background-color: maroon;
-    transform: translate(-50%, -50%);
-    transition: all 0.5s;
-  }
-
-  .menu-btn span:nth-of-type(2) {
-    top: calc(50% - 5px);
-  }
-
-  .menu-btn span:nth-of-type(3) {
-    top: calc(50% + 5px);
-  }
-
-  .menu__body {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    z-index: 200;
-    padding: 15px;
-    background-color: gray;
-    transform: translateX(-100%);
-    transition: transform 0.5s;
-  }
+    top: 120px;
+    z-index: 100;
 
-  .menu__list {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .menu__body.active {
-    transform: translateX(0);
-  }
-
-  // .menu li {
-  //   list-style-type: none;
-  // }
-
-  .menu-btn.active span:first-of-type {
-    transform: translateX(100%);
-  }
-
-  .menu-btn.active span:nth-of-type(2) {
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-
-  .menu-btn.active span:nth-of-type(3) {
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(-45deg);
+    &__list {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 }
 

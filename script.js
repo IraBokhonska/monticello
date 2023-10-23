@@ -7,21 +7,22 @@ headerScroll.addEventListener("click", () => {
 
 // ------------------menu---------------------------
 
-const menuBtn = document.querySelector(".menu-btn");
-const menu = document.querySelector(".menu__body");
-
-menuBtn.addEventListener("click", function () {
-  menuBtn.classList.toggle("active");
-  menu.classList.toggle("active");
-});
-
 // --------------swiper------------------------------
 
 const swiperHeader = new Swiper(".header__swiper", {
-  direction: "vertical",
+  // direction: "vertical",
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
+  },
+
+  breakpoints: {
+    992: {
+      direction: "vertical",
+    },
+    320: {
+      direction: "horizontal",
+    },
   },
 });
 
@@ -36,14 +37,27 @@ const swiperNews = new Swiper(".news__swiper", {
     prevEl: ".swiper-button-prev",
   },
 
-  slidesPerView: 3,
-  spaceBetween: 30,
   freeMode: true,
 
   loop: true,
+  // centeredSlides: true,
+  spaceBetween: 30,
 
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: true,
+  // autoplay: {
+  //   delay: 4000,
+  //   disableOnInteraction: true,
+  // },
+
+  breakpoints: {
+    1550: {
+      slidesPerView: 3,
+    },
+    992: {
+      slidesPerView: 2,
+      centeredSlides: false,
+    },
+    320: {
+      slidesPerView: 1,
+    },
   },
 });

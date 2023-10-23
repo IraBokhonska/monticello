@@ -6,6 +6,13 @@
 
   &__container {
     padding-top: 120px;
+    position: relative;
+  }
+
+  &__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   &__content {
@@ -22,6 +29,10 @@
   &__subtitle {
     font-weight: 700;
     padding: 30px 0 15px 0;
+
+    @media (max-width: 1550px) {
+      min-height: 100px;
+    }
   }
 
   &__text {
@@ -67,57 +78,72 @@
 }
 
 .news {
-  &__container {
-    position: relative;
-  }
+  .swiper {
+    &-slide__wrapper {
+      width: 370px;
+      height: 518px;
 
-  &__swiper,
-  &__wrapper {
-    position: static;
-  }
-}
+      @media (max-width: 1550px) {
+        width: 100%;
+        height: 100%;
+      }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+      @media (max-width: 980px) {
+        display: flex;
+      }
+      @media (max-width: 576px) {
+        flex-direction: column;
+      }
+    }
 
-.swiper-button-prev,
-.swiper-button-next {
-  top: 534px;
-  width: calc(var(--swiper-navigation-size) / 40px * 40px);
-}
+    &-button {
+      &-prev,
+      &-next {
+        top: 534px;
+        width: calc(var(--swiper-navigation-size) / 40px * 40px);
 
-.swiper-button-prev {
-  left: 115px;
-}
+        @media (max-width: 1200px) {
+          display: none;
+        }
+      }
 
-.swiper-button-next {
-  right: 115px;
-}
+      &-prev {
+        left: 115px;
+      }
 
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  content: "";
-  width: calc(var(--swiper-navigation-size) / 40px * 40px);
-}
+      &-next {
+        right: 115px;
+      }
 
-.swiper-button-prev:hover circle,
-.swiper-button-next:hover circle {
-  fill: #24ccfa;
-}
+      &-prev::after,
+      &-next::after {
+        content: "";
+        width: calc(var(--swiper-navigation-size) / 40px * 40px);
+      }
 
-.news {
-  &__pagination {
-    margin: 0;
-    margin-top: 40px;
-    position: static;
+      &-prev:hover circle,
+      &-next:hover circle {
+        fill: #24ccfa;
+      }
+    }
 
-    display: flex;
-    justify-content: center;
-    gap: 40px;
+    &-pagination {
+      margin: 0;
+      margin-top: 40px;
+      position: static;
+
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+
+      @media (max-width: 1550px) {
+        display: none;
+      }
+
+      @media (max-width: 1200px) {
+        display: flex;
+      }
+    }
   }
 }
 
@@ -127,3 +153,8 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .news__container {
+    padding: 120px 100px 0 100px;
+  }
+}

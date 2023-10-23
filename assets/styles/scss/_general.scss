@@ -31,6 +31,7 @@
 .container {
   max-width: 1600px;
   padding: 0 215px;
+
   margin: 0 auto;
 
   display: flex;
@@ -104,17 +105,14 @@
   }
 }
 
-.logo {
-  margin-right: 34px;
-}
-
 .icon-list {
   max-width: 160px;
   min-height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  @include adaptiveValue("gap", 20, 5, 1);
+  // gap: 20px;
 }
 
 .icon-item:hover path {
@@ -132,6 +130,7 @@
 
 .swiper {
   width: 100%;
+  position: static;
 }
 
 .swiper-pagination-bullet {
@@ -148,9 +147,10 @@
   }
 }
 
-@media (max-width: 1599px) {
+@media (max-width: 1400px) {
   .container {
-    padding: 0 100px;
+    @include adaptiveValue("padding-left", 100, 10, 0);
+    @include adaptiveValue("padding-right", 100, 10, 0);
   }
 }
 // @media (min-width: 576px) { ... }
