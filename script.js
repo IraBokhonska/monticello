@@ -5,8 +5,6 @@ headerScroll.addEventListener("click", () => {
   projectSection.scrollIntoView({ behavior: "smooth" });
 });
 
-// ------------------menu---------------------------
-
 // --------------swiper------------------------------
 
 const swiperHeader = new Swiper(".header__swiper", {
