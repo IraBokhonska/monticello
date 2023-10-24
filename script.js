@@ -50,7 +50,7 @@ const swiperNews = new Swiper(".news__swiper", {
     1550: {
       slidesPerView: 3,
     },
-    992: {
+    890: {
       slidesPerView: 2,
       centeredSlides: false,
     },
