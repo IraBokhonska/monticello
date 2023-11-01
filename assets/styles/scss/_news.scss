@@ -6,17 +6,22 @@
 
   &__container {
     padding-top: 120px;
+    @include adaptiveValue("padding-top", 120, 40, 1);
     position: relative;
   }
 
-  &__image img {
+  &__image {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 240px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &__content {
-    padding: 0 20px 30px 20px;
+    padding: 30px 20px;
 
     background-color: #ffffff;
   }
@@ -28,16 +33,12 @@
 
   &__subtitle {
     font-weight: 700;
-    padding: 30px 0 15px 0;
-
-    // @media (max-width: 1550px) {
-    //   min-height: 100px;
-    // }
+    margin-bottom: 15px;
   }
 
   &__text {
     line-height: 25px;
-    margin-bottom: 39px;
+    min-height: 90px;
   }
 
   .line {
@@ -63,7 +64,7 @@
     margin-bottom: 6px;
 
     font-weight: 400;
-    font-size: 18px;
+    @include adaptiveValue("font-size", 18, 14, 1);
     line-height: 22px;
     color: #2c4058;
   }
@@ -80,8 +81,8 @@
 .news {
   .swiper {
     &-slide__wrapper {
-      width: 370px;
-      height: 518px;
+      width: 100%;
+      max-height: 518px;
     }
 
     &-button {
@@ -89,10 +90,6 @@
       &-next {
         top: 534px;
         width: calc(var(--swiper-navigation-size) / 40px * 40px);
-
-        @media (max-width: 1200px) {
-          display: none;
-        }
       }
 
       &-prev {
@@ -118,75 +115,78 @@
     &-pagination {
       margin: 0;
       margin-top: 40px;
+      @include adaptiveValue("margin-top", 40, 60, 1);
       position: static;
 
       display: flex;
       justify-content: center;
-      // gap: 40px;
       @include adaptiveValue("gap", 40, 15, 1);
-
-      @media (max-width: 1550px) {
-        display: none;
-      }
-
-      @media (max-width: 1200px) {
-        display: flex;
-      }
-    }
-  }
-}
-
-.news {
-  .swiper {
-    &-slide__wrapper {
-      @media (max-width: 1550px) {
-        width: 100%;
-        height: 100%;
-      }
-
-      @media (max-width: 890px) {
-        display: flex;
-      }
-      @media (max-width: 576px) {
-        flex-direction: column;
-      }
-    }
-  }
-}
-
-@media (max-width: 1599px) {
-  .news {
-    &__container {
-      padding: 120px 215px 0 215px;
     }
   }
 }
 
 @media (max-width: 1550px) {
-  .news__subtitle {
-    min-height: 100px;
-  }
-}
-
-@media (max-width: 1250px) {
   .news {
-    min-height: 0;
-    max-height: 978px;
-  }
-  .news__container {
-    padding: 100px 150px 0 150px;
+    min-height: fit-content;
+
+    &__container {
+      @include adaptiveValue("padding-left", 100, 10, 0);
+      @include adaptiveValue("padding-right", 100, 10, 0);
+      margin: 0;
+    }
+
+    &__subtitle {
+      min-height: 80px;
+      margin-bottom: 0px;
+    }
+
+    .swiper-button {
+      &-prev,
+      &-next {
+        svg {
+          display: none;
+        }
+      }
+    }
+
+    .swiper-pagination {
+      margin: 0;
+      padding: 40px;
+      @include adaptiveValue("padding-bottom", 100, 40, 1);
+    }
   }
 }
 
-@media (max-width: 1200px) {
-  .news__container {
-    @include adaptiveValue("padding", 100, 10, 1);
-    @include adaptiveValue("padding-top", 100, 40, 1);
+@media (max-width: 768px) {
+  .news {
+    &__image {
+      width: 60%;
+      height: inherit;
+    }
+
+    .swiper-slide__wrapper {
+      display: flex;
+    }
   }
 }
 
-// @media (max-width: 870px) {
-//   .news__text {
-//     min-height: 75px;
-//   }
-// }
+@media (max-width: 400px) {
+  .news {
+    &__image {
+      width: 100%;
+      height: 214px;
+    }
+
+    &__content {
+      padding: 15px;
+    }
+
+    &__subtitle {
+      min-height: 50px;
+    }
+
+    .swiper-slide__wrapper {
+      flex-direction: column;
+    }
+  }
+}

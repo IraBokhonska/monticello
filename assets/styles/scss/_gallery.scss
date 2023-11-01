@@ -28,8 +28,9 @@
   &-item {
     position: relative;
     transition: all 1s ease 0s;
+
     &:hover {
-      transform: scale(1.5);
+      transform: scale(1.3);
       z-index: 5;
     }
   }
@@ -72,23 +73,55 @@
 @media (max-width: 1200px) {
   .gallery__grid {
     &-container {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       grid-auto-flow: dense;
+
+      cursor: url("/assets/images/gallery/zoom-small.svg"), auto;
     }
+
     &-item_big {
       grid-column: span 1;
     }
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .gallery__grid {
     &-container {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
+
     &-item_big {
       grid-column: span 1;
-      grid-row: span 1;
+      grid-row: span 2;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    &__container {
+      padding: 0;
+    }
+
+    &__grid {
+      &-container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(5, 300px);
+        cursor: pointer;
+      }
+
+      &-item {
+        height: 300px;
+        transition: none;
+        &:hover {
+          transform: none;
+        }
+      }
+
+      &-item_big {
+        grid-row: span 1;
+      }
     }
   }
 }

@@ -18,7 +18,6 @@
     margin-top: 54px;
 
     display: flex;
-    flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
     gap: 369px;
@@ -31,6 +30,7 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 41px;
+    @include adaptiveValue("gap", 41, 0, 0);
   }
 
   &__copyright {
@@ -65,7 +65,7 @@
     font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    @include adaptiveValue("font-size", 18, 15, 1);
     line-height: 27px;
 
     color: #000000;
@@ -78,12 +78,13 @@
   &__button {
     width: 140px;
   }
-}
 
-.form__content {
-  display: flex;
-  justify-content: space-between;
-  gap: 54px;
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 54px;
+    @include adaptiveValue("gap", 54, 20, 1);
+  }
 }
 
 .form__contacts {
@@ -95,6 +96,7 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 22px;
+  @include adaptiveValue("gap", 22, 0, 1);
 
   font-style: normal;
 
@@ -110,15 +112,15 @@
       align-self: flex-end;
     }
   }
-}
 
-.icon-contact path {
-  fill: #7e5aff;
-  stroke: #7e5aff;
-}
+  .icon-contact path {
+    fill: #7e5aff;
+    stroke: #7e5aff;
+  }
 
-.clock {
-  transform: rotate(180deg);
+  .clock {
+    transform: rotate(180deg);
+  }
 }
 
 .form {
@@ -132,7 +134,7 @@
   }
 
   &__user-item input {
-    width: 310px;
+    @include adaptiveValue("width", 310, 250, 1);
     height: 41px;
     border-bottom: 1px solid #2c4058;
 
@@ -143,5 +145,43 @@
     line-height: 27px;
 
     color: #000000;
+  }
+}
+
+//-------------------media---------------------------------
+@media (max-width: 1400px) {
+  .footer {
+    min-height: fit-content;
+    padding: 0;
+
+    &__container {
+      max-width: 100%;
+      width: 100%;
+      padding: 0 20px;
+
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      @include adaptiveValue("margin-bottom", 100, 40, 0);
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .form {
+    &__container {
+      max-width: 100%;
+      width: 100%;
+      padding: 30px 20px;
+      margin-top: -100px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .form {
+    &__content {
+      flex-direction: column;
+    }
   }
 }

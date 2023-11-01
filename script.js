@@ -8,7 +8,6 @@ headerScroll.addEventListener("click", () => {
 // --------------swiper------------------------------
 
 const swiperHeader = new Swiper(".header__swiper", {
-  // direction: "vertical",
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
@@ -36,26 +35,39 @@ const swiperNews = new Swiper(".news__swiper", {
   },
 
   freeMode: true,
-
   loop: true,
-  // centeredSlides: true,
   spaceBetween: 30,
+  slidesPerView: 3,
 
-  // autoplay: {
-  //   delay: 4000,
-  //   disableOnInteraction: true,
-  // },
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: true,
+  },
 
   breakpoints: {
-    1550: {
+    1600: {
+      spaceBetween: 30,
       slidesPerView: 3,
     },
-    890: {
+    1300: {
+      spaceBetween: 20,
+      slidesPerView: 3,
+    },
+
+    1100: {
+      slidesPerView: 3,
+      spaceBetween: 15,
+    },
+
+    768: {
       slidesPerView: 2,
-      centeredSlides: false,
+      spaceBetween: 40,
     },
     320: {
       slidesPerView: 1,
+    },
+    0: {
+      spaceBetween: 10,
     },
   },
 });
