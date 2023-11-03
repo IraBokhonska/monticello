@@ -1,10 +1,34 @@
+const menuLinks = document.querySelectorAll(".menu__link");
+const header = document.querySelector(".header");
 const headerScroll = document.querySelector(".header__scroll");
 const projectSection = document.querySelector("#projects");
+const newsSection = document.querySelector("#news");
+const contactsSection = document.querySelector("#contacts");
+const footerLogo = document.querySelector(".footer__logo a");
 
-headerScroll.addEventListener("click", () => {
-  projectSection.scrollIntoView({ behavior: "smooth" });
+const sections = [header, projectSection, newsSection, contactsSection];
+
+function smoothScrollToSection(section) {
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+menuLinks.forEach((menuLink, index) => {
+  menuLink.addEventListener("click", (e) => {
+    smoothScrollToSection(sections[index]);
+    e.preventDefault();
+  });
 });
 
+headerScroll.addEventListener("click", () => {
+  smoothScrollToSection(projectSection);
+});
+
+footerLogo.addEventListener("click", (e) => {
+  smoothScrollToSection(header);
+  e.preventDefault();
+});
 // --------------swiper------------------------------
 
 const swiperHeader = new Swiper(".header__swiper", {
@@ -21,6 +45,14 @@ const swiperHeader = new Swiper(".header__swiper", {
       direction: "horizontal",
     },
   },
+
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+
+  freeMode: true,
+  loop: true,
 });
 
 const swiperNews = new Swiper(".news__swiper", {
@@ -34,15 +66,15 @@ const swiperNews = new Swiper(".news__swiper", {
     prevEl: ".swiper-button-prev",
   },
 
+  // autoplay: {
+  //   delay: 3000,
+  //   disableOnInteraction: false,
+  // },
+
   freeMode: true,
   loop: true,
   spaceBetween: 30,
   slidesPerView: 3,
-
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: true,
-  },
 
   breakpoints: {
     1600: {

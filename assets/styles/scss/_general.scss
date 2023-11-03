@@ -63,6 +63,15 @@
   @include adaptiveValue("line-height", 54, 35, 1);
 
   color: #2c4058;
+
+  transform: translate(-70%, 0px);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
+
+  &._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
 }
 
 .subtitle {
@@ -139,7 +148,7 @@
     border: 1px solid #ffffff;
     opacity: 1;
 
-    &:hover {
+    &-active {
       background-color: #ffffff;
       transition: 0.3s;
     }
